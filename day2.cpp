@@ -22,6 +22,7 @@ std::vector<std::string> getCodes(std::string fname) {
 	return codes;
 }
 
+/*
 
 int main() {
 
@@ -103,6 +104,6 @@ int main() {
 }
 
 
-
+*/
 
 

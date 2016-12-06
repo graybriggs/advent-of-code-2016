@@ -96,7 +96,7 @@ struct Position {
 	Direction dir;
 };
 
-
+/*
 
 int main() {
 
@@ -112,4 +112,4 @@ int main() {
 	std::cin >> c;
 }
 
-
+*/
