@@ -15,9 +15,7 @@ std::vector<Triangle> split(std::string fname) {
 
 	int first, second, third;
 
-	while (!ifs.eof()) {
-		std::getline(ifs, input);
-
+	while (std::getline(ifs, input)) {
 		Triangle t;
 		std::sscanf(input.c_str(), "%d %d %d", &t.edge[0], &t.edge[1], &t.edge[2]);
 		triangles.push_back(t);
