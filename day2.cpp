@@ -14,15 +14,12 @@ std::vector<std::string> getCodes(std::string fname) {
 	std::ifstream ifs(fname);
 	std::string line;
 
-	while (!ifs.eof()) {
-		std::getline(ifs, line);
-
+	while (std::getline(ifs, line)) {
 		codes.push_back(line);
 	}
 	return codes;
 }
 
-/*
 
 int main() {
 
@@ -103,7 +100,5 @@ int main() {
 	std::cin >> c;
 }
 
-
-*/
 
 
