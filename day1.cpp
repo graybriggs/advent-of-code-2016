@@ -28,8 +28,7 @@ void read_coordinates(std::vector<Instruction>& instructions, const std::string&
 	std::ifstream ifs(fn);
 	std::string value;
 
-	while (!ifs.eof()) {
-		std::getline(ifs, value, ',');
+	while (std::getline(ifs, value, ',')) {
 		value = strip_whitespace(value);
 		
 		Instruction ins;
@@ -96,7 +95,6 @@ struct Position {
 	Direction dir;
 };
 
-/*
 
 int main() {
 
@@ -112,4 +110,4 @@ int main() {
 	std::cin >> c;
 }
 
-*/
+
