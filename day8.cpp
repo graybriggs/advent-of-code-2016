@@ -126,13 +126,7 @@ public:
 	}
 
 	int count_on_pixels() {
-		int counter = 0;
-
-		for (int i = 0; i < screen.size(); i++) {
-			if (screen[i] == '#')
-				++counter;
-		}
-		return counter;
+		return std::count(std::begin(screen), std::end(screen), '#');
 	}
 
 private:
