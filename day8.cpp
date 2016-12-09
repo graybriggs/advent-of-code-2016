@@ -9,7 +9,7 @@
 
 namespace day8 {
 
-std::vector<std::string> read_input(std::string fname) {
+std::vector<std::string> read_input(const std::string fname) {
 
 	std::vector<std::string> instructions;
 
@@ -60,7 +60,7 @@ public:
 
 	}
 
-	void create_rect(int x, int y) {
+	void create_rect(const int x, const int y) {
 
 		for (int i = 0; i < y; ++i) {
 			for (int j = 0; j < x; ++j) {
@@ -70,7 +70,7 @@ public:
 
 	}
 
-	void rotate_row(int row, int amount) {
+	void rotate_row(const int row, const int amount) {
 		if (row > screen_h)
 			return;
 
@@ -91,7 +91,7 @@ public:
 
 	}
 
-	void rotate_column(int col, int amount) {
+	void rotate_column(const int col, const int amount) {
 		if (col > screen_w)
 			return;
 
@@ -115,7 +115,7 @@ public:
 
 	}
 
-	void print_screen() {
+	void print_screen() const {
 
 		for (int y = 0; y < screen_h; ++y) {
 			for (int x = 0; x < screen_w; x++) {
@@ -125,20 +125,20 @@ public:
 		}
 	}
 
-	int count_on_pixels() {
+	int count_on_pixels() const {
 		return std::count(std::begin(screen), std::end(screen), '#');
 	}
 
 private:
 
-	void clear_row(int row) {
+	void clear_row(const int row) {
 
 		for (int i = 0; i < screen_w; ++i) {
 			screen[row * screen_w + i] = '.';
 		}
 	}
 
-	void clear_column(int col) {
+	void clear_column(const int col) {
 
 		for (int i = 0; i < screen_h; i += screen_h) {
 			screen[i * screen_h + col] = '.';
@@ -164,7 +164,7 @@ int main() {
 
 	Screen scr;
 
-	for (auto& ins : instructions)
+	for (const auto& ins : instructions)
 		scr.parse_instruction(ins);
 
 	scr.print_screen();
