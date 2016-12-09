@@ -38,19 +38,19 @@ public:
 
 		if (ins.find("row") != std::string::npos) {
 			int a, b;
-			sscanf(ins.c_str(), "rotate row y=%d by %d", &a, &b);
+			std::sscanf(ins.c_str(), "rotate row y=%d by %d", &a, &b);
 
 			rotate_row(a, b);
 		}
 		else if (ins.find("column") != std::string::npos) {
 			int a, b;
-			sscanf(ins.c_str(), "rotate column x=%d by %d", &a, &b);
+			std::sscanf(ins.c_str(), "rotate column x=%d by %d", &a, &b);
 			
 			rotate_column(a, b);
 		}
 		else if (ins.find("rect") != std::string::npos) {
 			int x, y;
-			sscanf(ins.c_str(), "rect %dx%d", &x, &y);
+			std::sscanf(ins.c_str(), "rect %dx%d", &x, &y);
 			
 			create_rect(x, y);
 		}
