@@ -1,5 +1,6 @@
 #include <array>
 #include <cstdio>
+#include <cstring>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -12,10 +13,10 @@ public:
 	computer()
 		: program_counter(0), registers({ 0 })
 	{
-		registers[2] = 1;
 	}
 
 	computer(int r1, int r2, int r3, int r4)
+    : program_counter(0)
 	{
 		registers[0] = r1;
 		registers[1] = r2;
@@ -59,11 +60,11 @@ private:
 
 	void decode_instruction(const std::string next_ins) {
 
-		char* tokens = strtok(const_cast<char*>(next_ins.c_str()), " ");
+		char* tokens = std::strtok(const_cast<char*>(next_ins.c_str()), " ");
 
-		if (strcmp(tokens, "cpy") == 0) {
-			char* lhs = strtok(nullptr, " ");
-			char* rhs = strtok(nullptr, " ");
+		if (std::strcmp(tokens, "cpy") == 0) {
+			char* lhs = std::strtok(nullptr, " ");
+			char* rhs = std::strtok(nullptr, " ");
 
 			if (is_register(lhs)) {
 				cpy_reg(to_dec(*lhs), to_dec(*rhs));
@@ -73,17 +74,17 @@ private:
 			}
 
 		}
-		else if (strcmp(tokens, "inc") == 0) {
-			char* reg = strtok(nullptr, " ");
+		else if (std::strcmp(tokens, "inc") == 0) {
+			char* reg = std::strtok(nullptr, " ");
 			inc(to_dec(*reg));
 		}
-		else if (strcmp(tokens, "dec") == 0) {
-			char* reg = strtok(nullptr, " ");
+		else if (std::strcmp(tokens, "dec") == 0) {
+			char* reg = std::strtok(nullptr, " ");
 			dec(to_dec(*reg));
 		}
-		else if (strcmp(tokens, "jnz") == 0) {
-			char* lhs = strtok(nullptr, " ");
-			char* rhs = strtok(nullptr, " ");
+		else if (std::strcmp(tokens, "jnz") == 0) {
+			char* lhs = std::strtok(nullptr, " ");
+			char* rhs = std::strtok(nullptr, " ");
 
 			if (is_register(lhs)) {
 				jnz_reg(to_dec(*lhs), std::stoi(std::string(rhs)));
